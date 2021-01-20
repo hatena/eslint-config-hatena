@@ -48,15 +48,15 @@ npm i -D eslint-config-prettier eslint-plugin-prettier prettier
 
 ## 使い方
 
-[docs/usage.md](https://github.com/hatena/eslint-config-hatena/blob/master/docs/usage.md)
+[docs/usage.md](https://github.com/hatena/eslint-config-hatena/blob/main/docs/usage.md)
 
 ## 他ツールとの連携について
 
-[docs/integration.md](https://github.com/hatena/eslint-config-hatena/blob/master/docs/integration.md)
+[docs/integration.md](https://github.com/hatena/eslint-config-hatena/blob/main/docs/integration.md)
 
 ## rule や config の追加方法 / リリース方法について
 
-[CONTRIBUTING.md](https://github.com/hatena/eslint-config-hatena/blob/master/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/hatena/eslint-config-hatena/blob/main/CONTRIBUTING.md)
 
 ## Special Thanks
 

@@ -45,7 +45,7 @@ module.exports = {
 
 ## `@hatena/hatena`
 
-![required YES](https://img.shields.io/badge/requrired-YES-red) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/master/index.js)
+![required YES](https://img.shields.io/badge/requrired-YES-red) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/index.js)
 
 純粋な ECMAScript を lint するための rule をまとめた config です。[ESLint の `env`](https://eslint.org/docs/user-guide/configuring#specifying-environments) により、ソースコードが ES2020 に準拠しているものとして lint するよう構成されています。プロジェクトでターゲットとしている ECMAScript のバージョンが ES2020 より低い場合は、適時 `env` で設定を上書きして下さい。
 
@@ -65,7 +65,7 @@ module.exports = {
 
 ## `@hatena/hatena/+typescript`
 
-![required no](https://img.shields.io/badge/requrired-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/master/+typescript.js)
+![required no](https://img.shields.io/badge/requrired-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+typescript.js)
 
 TypeScript を利用しているプロジェクト向けの config です。この config を利用するにはプロジェクトで使用している `tsconfig.json` を `parserOptions.project` に記述する必要があります (省略すると `./tsconfig.json` が使われます)。
 
@@ -101,12 +101,12 @@ module.exports = {
 
 ## `@hatena/hatena/+react`
 
-![required no](https://img.shields.io/badge/requrired-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/master/+react.js)
+![required no](https://img.shields.io/badge/requrired-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+react.js)
 
 React を利用しているプロジェクト向けの config です。
 
 ## `@hatena/hatena/+prettier`
 
-![required no](https://img.shields.io/badge/requrired-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/master/+prettier.js)
+![required no](https://img.shields.io/badge/requrired-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+prettier.js)
 
 prettier を利用しているプロジェクト向けの config です。

@@ -30,7 +30,7 @@
 ## リリース方法 (メンテナー向け)
 
 ```console
-$ git switch master
+$ git switch main
 $ git pull
 $ yarn version --no-git-tag-version
 $ git commit -am "vX.X.X"
