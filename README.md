@@ -5,12 +5,12 @@ ESLint config for @hatena
 ## 目的
 
 - ESLint を簡単に導入できるように
-  - 複雑な eslintrc を書かずとも、いくつかの config を extends するだけで良い感じの lint ができるように
+  - 複雑な eslintrc を書かずとも、いくつかの config を extends するだけで期待通りの lint ができるように
   - ライブラリ側で難しい部分を吸収することで、ESLint に詳しくない人でもなんとなく正しく使えるように
 - 使っているだけで自然とベストプラクティスが取り入れられるように
   - config を共通化することで、沢山のプロジェクトに効率的にベストプラクティスを取り入れられるように
 - 一定のコーディングスタイルを強制することで、悩まず素早く開発できるように
-  - いちいちどっちの書き方が良いですか、と悩んだり議論する時間が勿体ないので、一旦これで、というのを config として提供してしまう
+  - いちいちどちらの書き方が良いか、と悩んだり議論する時間が勿体ないので、「一旦これで」というコーディング規約を config として提供してしまう
 
 ## 目的でないもの
 
@@ -60,4 +60,4 @@ npm i -D eslint-config-prettier eslint-plugin-prettier prettier
 
 ## Special Thanks
 
-このパッケージの config の分割方法などは [teppeis/eslint-config-teppeis](https://github.com/teppeis/eslint-config-teppeis) を参考に設計されました。
+このパッケージは [teppeis/eslint-config-teppeis](https://github.com/teppeis/eslint-config-teppeis) を参考に設計されました。
