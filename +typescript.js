@@ -88,11 +88,15 @@ const configOverrideForTS = {
         trailingUnderscore: 'forbid',
       },
     ],
-    // 強力すぎるため warn に
+    // 厳密な型検査ができなくなってしまうため、any の利用を警告する。
+    // ただし意図的に利用したいことも多々あるので warning とする。
     '@typescript-eslint/no-explicit-any': 1,
-    // 強力すぎるため warn に
+    // ハンドリングされていない promise は基本コーディングミスであるため警告する。
+    // ただし意図的にハンドリングしないことも多々あるので warning とする。
     // require type information
     '@typescript-eslint/no-floating-promises': 1,
+    // nullable の無視は実行時エラーを引き起こす可能性があるため警告する。
+    // ただし意図的に無視したいことも多々あるので warning とする。
     // 強力すぎるため warn に
     '@typescript-eslint/no-non-null-assertion': 1,
     // `require` は静的解析と相性が悪いため禁止する。
