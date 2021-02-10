@@ -1,5 +1,5 @@
 {
-  "extends": ["github>hatena/renovate-config", "schedule:monthly", ":disablePeerDependencies"],
+  "extends": ["github>hatena/renovate-config", "schedule:monthly"],
   "ignorePresets": ["github>hatena/renovate-config:schedule"],
   "packageRules": [
     {
