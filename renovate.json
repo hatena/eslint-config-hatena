@@ -5,6 +5,10 @@
     {
       "matchDepTypes": ["devDependencies"],
       "automerge": true
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "versionStrategy": "widen"
     }
   ]
 }
