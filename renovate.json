@@ -8,7 +8,7 @@
     },
     {
       "matchDepTypes": ["peerDependencies"],
-      "versionStrategy": "widen"
+      "rangeStrategy": "widen"
     }
   ]
 }
