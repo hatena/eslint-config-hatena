@@ -3,7 +3,7 @@
   "ignorePresets": ["github>hatena/renovate-config:schedule"],
   "packageRules": [
     {
-      "depTypeList": ["devDependencies"],
+      "matchDepTypes": ["devDependencies"],
       "automerge": true
     }
   ]
