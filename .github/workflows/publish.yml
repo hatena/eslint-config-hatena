@@ -50,7 +50,7 @@ jobs:
 
       # まだ tag がないバージョンなら tag を push する
       - name: package-version-to-git-tag
-        uses: pkgdeps/action-package-version-to-git-tag@v1
+        uses: pkgdeps/action-package-version-to-git-tag@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repo: ${{ github.repository }}
