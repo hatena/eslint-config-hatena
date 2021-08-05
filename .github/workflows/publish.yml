@@ -48,11 +48,17 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # package.json からバージョンを取得する
+      - name: package-version
+        id: package-version
+        run: echo "::set-output name=version::$(cat package.json | jq -r .version)"
+
       # まだ tag がないバージョンなら tag を push する
       - name: package-version-to-git-tag
-        uses: pkgdeps/action-package-version-to-git-tag@v1
+        uses: pkgdeps/git-tag-action@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repo: ${{ github.repository }}
           git_commit_sha: ${{ github.sha }}
+          version: ${{ steps.package-version.outputs.version }}
           git_tag_prefix: 'v'
