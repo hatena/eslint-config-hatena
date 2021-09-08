@@ -1,6 +1,6 @@
 {
   "name": "@hatena/eslint-config-hatena",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ESLint config for @hatena",
   "main": "index.js",
   "repository": "https://github.com/hatena/eslint-config-hatena",
