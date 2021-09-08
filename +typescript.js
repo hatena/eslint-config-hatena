@@ -120,6 +120,7 @@ const configOverrideForTS = {
     //   `unusedProp` が未使用であると警告しないように
     // - `_` 始まりの変数は未使用変数を表す、という文化に沿って `_` 始まりの変数は未使用であっても警告しないように
     // - エラーを無視しないよう、catch 節のエラーオブジェクトが未使用の場合は警告する
+    'no-unused-vars': 0,
     '@typescript-eslint/no-unused-vars': [
       2,
       {
@@ -128,6 +129,12 @@ const configOverrideForTS = {
         caughtErrors: 'all',
       },
     ],
+    // @typescript-eslint/no-explicit-any さえあれば十分なので off にしておく。
+    '@typescript-eslint/no-unsafe-assignment': 0,
+    // @typescript-eslint/no-explicit-any さえあれば十分なので off にしておく。
+    '@typescript-eslint/no-unsafe-call': 0,
+    // @typescript-eslint/no-explicit-any さえあれば十分なので off にしておく。
+    '@typescript-eslint/no-unsafe-member-access': 0,
   },
 };
 
