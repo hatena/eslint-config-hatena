@@ -2,5 +2,5 @@
 
 /** @type import('eslint').Linter.BaseConfig */
 module.exports = {
-  extends: ['plugin:prettier/recommended', 'prettier'],
+  extends: ['prettier'],
 };

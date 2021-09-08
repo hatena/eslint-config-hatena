@@ -35,25 +35,14 @@ prettier と併用している場合は以下のように記述すると良い�
 
 ## prettier
 
-[`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) の `prettier/prettier` rule により、ESLint のエラー報告に prettier のエラーも含まれるようになります。そのため以下のように prettier のエラーを報告する npm-scripts を別途用意する必要はありません。
+eslint-config-hatena では prettier と競合する format に関する rule が off になっています。ESLint だけでは未フォーマットのコードを検知したり、format したりできないので、以下のように npm-scripts を別途用意しておくと良いでしょう。
 
 ```json
 {
   "scripts": {
     "check": "run-s check:*",
     "check:prettier": "prettier --check .",
-    "check:eslint": "eslint src test"
-    // ...
-  }
-}
-```
-
-次のように記述するだけで十分です。
-
-```json
-{
-  "scripts": {
-    "check": "run-s check:*",
+    "check:prettier:fix": "prettier --write .",
     "check:eslint": "eslint src test"
     // ...
   }

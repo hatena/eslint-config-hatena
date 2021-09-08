@@ -43,7 +43,7 @@ npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
 npm i -D eslint-plugin-react eslint-plugin-react-hooks
 
 # `@hatena/hatena/+prettier` を利用する場合は以下も追加でインストール
-npm i -D eslint-config-prettier eslint-plugin-prettier prettier
+npm i -D eslint-config-prettier prettier
 ```
 
 ## 使い方
