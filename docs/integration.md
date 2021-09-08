@@ -43,7 +43,7 @@ eslint-config-hatena では prettier と競合する format に関する rule �
     "lint": "run-s lint:*",
     "lint:prettier": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
-    "lint:eslint": "eslint src test"
+    "lint:eslint": "eslint ."
     // ...
   }
 }
