@@ -10,7 +10,10 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "check": "eslint '**/*.js'"
+    "lint": "run-s -c lint:*",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "lint:prettier:fix": "prettier --write ."
   },
   "engines": {
     "node": ">=10.0.0",

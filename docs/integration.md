@@ -40,10 +40,10 @@ eslint-config-hatena では prettier と競合する format に関する rule �
 ```json
 {
   "scripts": {
-    "check": "run-s check:*",
-    "check:prettier": "prettier --check .",
-    "check:prettier:fix": "prettier --write .",
-    "check:eslint": "eslint src test"
+    "lint": "run-s -c lint:*",
+    "lint:prettier": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:eslint": "eslint ."
     // ...
   }
 }

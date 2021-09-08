@@ -39,8 +39,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: yarn run check
-        run: yarn run check
+      - name: yarn run lint
+        run: yarn run lint
 
       # まだ publish されていないバージョンなら publish する
       - run: |
