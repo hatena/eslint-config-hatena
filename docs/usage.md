@@ -47,12 +47,15 @@ module.exports = {
 
 ![required YES](https://img.shields.io/badge/requrired-YES-red) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/index.js)
 
-純粋な ECMAScript を lint するための rule をまとめた config です。[ESLint の `env`](https://eslint.org/docs/user-guide/configuring#specifying-environments) により、ソースコードが ES2020 に準拠しているものとして lint するよう構成されています。プロジェクトでターゲットとしている ECMAScript のバージョンが ES2020 より低い場合は、適時 `env` で設定を上書きして下さい。
+純粋な ECMAScript を lint するための rule をまとめた config です。[ESLint の `env`](https://eslint.org/docs/user-guide/configuring#specifying-environments) により、ソースコードが ES2020 に準拠しているものとして lint するよう構成されています。プロジェクトでターゲットとしている ECMAScript のバージョンが ES2020 より低い場合は、適時 `parserOptions.ecmaVersion` と `env` で設定を上書きして下さい。
 
 ```javascript
 module.exports = {
   root: true,
   extends: ['@hatena/hatena'],
+  parserOptions: {
+    ecmaVersion: 2019,
+  },
   env: {
     es2019: true,
     es2020: false,
