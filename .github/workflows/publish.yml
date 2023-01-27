@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           always-auth: true
-          node-version: 14.x
+          node-version: 18.x
           registry-url: https://npm.pkg.github.com
           scope: '@hatena'
 
