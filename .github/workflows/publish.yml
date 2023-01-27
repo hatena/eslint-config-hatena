@@ -16,10 +16,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           always-auth: true
-          node-version: 14.x
+          node-version: 18.x
           registry-url: https://npm.pkg.github.com
           scope: '@hatena'
 
@@ -28,7 +28,6 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
-        id: cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
