@@ -25,7 +25,7 @@ jobs:
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         id: cache
@@ -51,7 +51,7 @@ jobs:
       # package.json からバージョンを取得する
       - name: package-version
         id: package-version
-        run: echo "::set-output name=version::$(cat package.json | jq -r .version)"
+        run: echo "version=$(cat package.json | jq -r .version)" >> $GITHUB_OUTPUT
 
       # まだ tag がないバージョンなら tag を push する
       - name: package-version-to-git-tag
