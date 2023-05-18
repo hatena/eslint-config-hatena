@@ -20,13 +20,39 @@ ESLint config for @hatena
 
 ## インストール
 
+URL 指定でインストールする方法と、GitHub Packages Registry からインストールする方法の 2 通りの方法があります。
+
+### URL 指定でインストールする (推奨)
+
+リポジトリの URL を指定してインストールする方法です。この方法でインストールすると、以下のような特徴があります。
+
+- メリット
+  - GitHub PAT を設定せずともインストールできる
+- デメリット
+  - `npm outdated` で更新の有無の確認ができない
+  - `npm update` で更新できない
+
+```bash
+npm i -D https://github.com/hatena/prettier-config-hatena.git#v1.0.0
+```
+
+### GitHub Packages Registry からインストールする
+
+GitHub Packages Registry を npm の registry として設定し、通常の npm package と同じようにパッケージ名でインストールする方法です。URL 指定でインストールする方法と比べると、以下のようなメリットがあります。
+
+- メリット
+  - `npm outdated` で更新の有無の確認ができる
+  - `npm update` で更新できる
+- デメリット
+  - インストールには GitHub PAT の設定が必要
+
 パッケージが GitHub Packages 上でホストされている関係で、インストールするには以下のような手順を踏む必要があります。
 
-1. https://github.com/settings/tokens から `read:packages` にチェックの入ったトークンを発行する
+1. https://github.com/settings/tokens から `read:packages` にチェックの入った GitHub PAT を発行する
 2. パッケージのインストール先のリポジトリにある `.npmrc` か `~/.npmrc` を以下のように書き換える
 
 ```
-//npm.pkg.github.com/:_authToken=<1で発行されたトークンをここに貼る>
+//npm.pkg.github.com/:_authToken=<1で発行された GitHub PAT をここに貼る>
 @hatena:registry=https://npm.pkg.github.com/
 ```
 
