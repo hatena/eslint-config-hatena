@@ -33,17 +33,7 @@ ESLint config for @hatena
 `.npmrc` を書き換えたら以下のコマンドでインストールできます。
 
 ```bash
-# `@hatena/hatena` のみ利用する場合
-npm i -D @hatena/eslint-config-hatena eslint eslint-plugin-import
-
-# `@hatena/hatena/+typescript` を利用する場合は以下も追加でインストール
-npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser typescript
-
-# `@hatena/hatena/+react` を利用する場合は以下も追加でインストール
-npm i -D eslint-plugin-react eslint-plugin-react-hooks
-
-# `@hatena/hatena/+prettier` を利用する場合は以下も追加でインストール
-npm i -D eslint-config-prettier prettier
+npm i -D eslint @hatena/eslint-config-hatena
 ```
 
 ## 使い方
