@@ -2,14 +2,7 @@
 
 /** @type import('eslint').Linter.BaseConfig */
 module.exports = {
-  plugins: ['import'],
-  extends: [
-    // eslint
-    'eslint:recommended',
-
-    // import
-    'plugin:import/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:import/recommended'],
   parserOptions: {
     // 現代では type="script" な環境で JS を書くことはまずないので、
     // デフォルトで type="module" なJSであるとして lint する

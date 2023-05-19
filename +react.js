@@ -2,7 +2,6 @@
 
 /** @type import('eslint').Linter.BaseConfig */
 module.exports = {
-  plugins: ['react', 'react-hooks'],
   extends: [
     // react
     'plugin:react/recommended',
