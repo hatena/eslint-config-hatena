@@ -34,10 +34,9 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.39.0.tgz#58b536bcc843f4cd1e02a7e6171da5c040f4d44b"
   integrity sha512-kf9RB0Fg7NZfap83B3QOqOGg9QmD9yBudqQXzzOtn3i4y7ZUXe5ONeW34Gwi+TxhH4mvj72R1Zc300KUMa9Bng==
 
-"@hatena/prettier-config-hatena@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@hatena/prettier-config-hatena/0.0.1/87c157a5838c2b3746863d2c12934b65670295e0f9a5c9a297c2d046bf7f8f40#d7663d72b65778cca75d6760245cd09144e1cfe8"
-  integrity sha512-R4TYsMHKW2WCdctga+yzku3aaiRDYa6mULVoQ5lLjDwE/uJ/Duzf3Do7HSASGs7S1FzO6U4bU0VAV4bsnt/q+Q==
+"@hatena/prettier-config-hatena@https://github.com/hatena/prettier-config-hatena.git#v1.0.0":
+  version "1.0.0"
+  resolved "https://github.com/hatena/prettier-config-hatena.git#4cd05e0eebc08b91ad606a30d62798ea620ff82d"
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
