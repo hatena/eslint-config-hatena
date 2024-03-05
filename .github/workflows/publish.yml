@@ -26,7 +26,6 @@ jobs:
       - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: pnpm lint
       # まだ publish されていないバージョンなら publish する
       - name: publish package
         run: |

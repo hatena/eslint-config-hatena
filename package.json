@@ -13,7 +13,8 @@
     "lint": "run-s -c lint:*",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
-    "lint:prettier:fix": "prettier --write ."
+    "lint:prettier:fix": "prettier --write .",
+    "prepublishOnly": "run-s lint"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.1.1",
