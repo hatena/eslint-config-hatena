@@ -1,23 +1,17 @@
 // @ts-check
 
-/** @type import('eslint').Linter.ConfigOverride */
-const configOverrideForTS = {
-  // *.js などではこれらのルールが適用されないようにする
-  files: ['*.ts', '*.tsx'],
-  plugins: ['@typescript-eslint'],
+/** @type import('eslint').Linter.BaseConfig */
+module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     // import
     'plugin:import/typescript',
   ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    // tsconfig.json の場所はプロジェクトによって異なるため、本来はプロジェクトに合わせて
-    // 上書きするべきするべき設定だが、いちいち上書きするのも面倒なので、ひとまず
-    // プロジェクトルートにある tsconfig.json を `parserOptions.project` にセットしてある。
-    // プロジェクトに応じて適時上書きしてもらうことを想定している。
-    project: './tsconfig.json',
+    // lint 対象のファイルに最も近い tsconfig.json を利用する。tsserver の挙動と同じなのでトラブルも少ないはず。
+    // ref: https://typescript-eslint.io/architecture/parser#project
+    project: true,
   },
   rules: {
     // eslint
@@ -136,9 +130,4 @@ const configOverrideForTS = {
     // @typescript-eslint/no-explicit-any さえあれば十分なので off にしておく。
     '@typescript-eslint/no-unsafe-member-access': 0,
   },
-};
-
-/** @type import('eslint').Linter.BaseConfig */
-module.exports = {
-  overrides: [configOverrideForTS],
 };
