@@ -26,4 +26,5 @@ jobs:
       - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm lint:check
