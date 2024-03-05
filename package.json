@@ -10,15 +10,11 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "lint": "run-s -c lint:*",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check .",
-    "lint:prettier:fix": "prettier --write ."
-  },
-  "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.11.0",
-    "yarn": ">=1.13.0"
+    "format": "prettier --write '*.js'",
+    "format:check": "prettier --check '*.js'",
+    "lint": "eslint --fix '*.js'",
+    "lint:check": "eslint '*.js'",
+    "prepublishOnly": "run-s format:check lint:check"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.1.1",

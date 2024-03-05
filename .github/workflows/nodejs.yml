@@ -5,29 +5,26 @@ on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - '18'
+          - '20'
+          - '21'
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
         with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
           always-auth: true
-          node-version: 18.x
           registry-url: https://npm.pkg.github.com
           scope: '@hatena'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.OS }}-yarn-
-
-      - name: yarn install --frozen-lockfile
-        run: yarn install --frozen-lockfile
+      - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: yarn run lint
-        run: yarn run lint
+      - run: pnpm format:check
+      - run: pnpm lint:check
