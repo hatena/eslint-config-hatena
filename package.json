@@ -9,21 +9,21 @@
     "registry": "https://npm.pkg.github.com"
   },
   "type": "commonjs",
-  "main": "index.js",
+  "main": "config/index.js",
   "exports": {
-    ".": "./index.js",
-    "./+prettier": "./+prettier.js",
-    "./+react": "./+react.js",
-    "./+typescript": "./+typescript.js"
+    ".": "./config/index.js",
+    "./+prettier": "./config/+prettier.js",
+    "./+react": "./config/+react.js",
+    "./+typescript": "./config/+typescript.js"
   },
   "files": [
-    "*.js"
+    "config"
   ],
   "scripts": {
-    "format": "prettier --write '*.js'",
-    "format:check": "prettier --check '*.js'",
-    "lint": "eslint --fix '*.js'",
-    "lint:check": "eslint '*.js'",
+    "format": "prettier --write config '*.js'",
+    "format:check": "prettier --check config '*.js'",
+    "lint": "eslint --fix config '*.js'",
+    "lint:check": "eslint config '*.js'",
     "prepublishOnly": "run-s format:check lint:check"
   },
   "dependencies": {
