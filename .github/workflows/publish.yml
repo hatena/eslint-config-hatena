@@ -10,51 +10,36 @@ on:
 
 jobs:
   release:
-    name: Setup
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
         with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
           always-auth: true
-          node-version: 18.x
           registry-url: https://npm.pkg.github.com
           scope: '@hatena'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.OS }}-yarn-
-
-      - name: yarn install --frozen-lockfile
-        run: yarn install --frozen-lockfile
+      - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: yarn run lint
-        run: yarn run lint
-
+      - run: pnpm lint
       # まだ publish されていないバージョンなら publish する
-      - run: |
-          npx can-npm-publish --verbose && npm publish || echo "Does not publish"
+      - name: publish package
+        run: |
+          npx can-npm-publish --verbose && pnpm publish || echo "Does not publish"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # package.json からバージョンを取得する
-      - name: package-version
+      - name: get version from package.json
         id: package-version
         run: echo "version=$(cat package.json | jq -r .version)" >> $GITHUB_OUTPUT
-
       # まだ tag がないバージョンなら tag を push する
-      - name: package-version-to-git-tag
-        uses: pkgdeps/git-tag-action@v2
+      - name: publish tag
+        uses: pkgdeps/git-tag-action@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repo: ${{ github.repository }}
