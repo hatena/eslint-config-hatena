@@ -11,9 +11,9 @@
   },
   "scripts": {
     "lint": "run-s -c lint:*",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check .",
-    "lint:prettier:fix": "prettier --write .",
+    "lint:eslint": "eslint '*.js'",
+    "lint:prettier": "prettier --check '*.js'",
+    "lint:prettier:fix": "prettier --write '*.js'",
     "prepublishOnly": "run-s lint"
   },
   "dependencies": {
