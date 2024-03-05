@@ -2,13 +2,23 @@
   "name": "@hatena/eslint-config-hatena",
   "version": "1.0.0",
   "description": "ESLint config for @hatena",
-  "main": "index.js",
   "repository": "https://github.com/hatena/eslint-config-hatena",
   "license": "MIT",
   "private": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+  "type": "commonjs",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./+prettier": "./+prettier.js",
+    "./+react": "./+react.js",
+    "./+typescript": "./+typescript.js"
+  },
+  "files": [
+    "*.js"
+  ],
   "scripts": {
     "format": "prettier --write '*.js'",
     "format:check": "prettier --check '*.js'",
@@ -49,8 +59,5 @@
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "typescript": "~5.3.3"
-  },
-  "files": [
-    "*.js"
-  ]
+  }
 }
