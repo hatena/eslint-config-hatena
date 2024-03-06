@@ -18,7 +18,10 @@
   },
   "files": [
     "lib",
-    "config"
+    "config",
+    "src",
+    "!src/**/*.{test,spec}.{ts,tsx}",
+    "!src/**/__tests__"
   ],
   "scripts": {
     "format": "prettier --write config '*.js' '*.cjs'",
