@@ -28,4 +28,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: pnpm format:check
       - run: pnpm lint:check
+      - run: pnpm typecheck
+      - run: pnpm build
       - run: pnpm configtest

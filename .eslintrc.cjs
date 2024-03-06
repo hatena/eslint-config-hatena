@@ -5,8 +5,8 @@ module.exports = {
   root: true,
   extends: [
     // basic
-    '@hatena/hatena',
-    '@hatena/hatena/+prettier',
+    '@hatena/hatena-stable',
+    '@hatena/hatena-stable/+prettier',
   ],
   env: {
     node: true,

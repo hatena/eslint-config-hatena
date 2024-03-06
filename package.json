@@ -17,6 +17,7 @@
     "./+typescript": "./config/+typescript.cjs"
   },
   "files": [
+    "lib",
     "config"
   ],
   "scripts": {
@@ -24,11 +25,13 @@
     "format:check": "prettier --check config '*.js' '*.cjs'",
     "lint": "eslint --fix --ext .js,.cjs config '*.js' '*.cjs'",
     "lint:check": "eslint --ext .js,.cjs config '*.js' '*.cjs'",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsup",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",
     "configtest:typescript": "./configtest/typescript/run.sh",
     "configtest:typescript-react": "./configtest/typescript-react/run.sh",
-    "prepublishOnly": "run-s format:check lint:check configtest"
+    "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -58,12 +61,14 @@
     }
   },
   "devDependencies": {
+    "@hatena/eslint-config-hatena-stable": "https://github.com/hatena/eslint-config-hatena.git#v1.0.0",
     "@hatena/prettier-config-hatena": "https://github.com/hatena/prettier-config-hatena.git#v1.0.0",
     "@types/react": "^18.2.63",
     "eslint": "^8.57.0",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
+    "tsup": "^8.0.2",
     "typescript": "~5.3.3"
   }
 }
