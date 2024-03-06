@@ -5,10 +5,13 @@ module.exports = {
   root: true,
   extends: [
     // basic
-    './config/index.js',
-    './config/+prettier.js',
+    '@hatena/hatena',
+    '@hatena/hatena/+prettier',
   ],
   env: {
     node: true,
+  },
+  rules: {
+    'import/no-default-export': 0,
   },
 };
