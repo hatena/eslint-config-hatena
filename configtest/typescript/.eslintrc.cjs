@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  extends: ['../../config/index.cjs', '../../config/+typescript.cjs', '../../config/+prettier.cjs'],
+  extends: ['@hatena/hatena', '@hatena/hatena/+typescript', '@hatena/hatena/+prettier'],
   env: {
     node: true,
   },

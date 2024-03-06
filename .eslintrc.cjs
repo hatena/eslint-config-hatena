@@ -5,8 +5,8 @@ module.exports = {
   root: true,
   extends: [
     // basic
-    './config/index.cjs',
-    './config/+prettier.cjs',
+    '@hatena/hatena',
+    '@hatena/hatena/+prettier',
   ],
   env: {
     node: true,
