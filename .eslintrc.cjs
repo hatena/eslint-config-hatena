@@ -11,4 +11,7 @@ module.exports = {
   env: {
     node: true,
   },
+  rules: {
+    'import/no-default-export': 0,
+  },
 };
