@@ -5,8 +5,8 @@ module.exports = {
   root: true,
   extends: [
     // basic
-    './config/index.js',
-    './config/+prettier.js',
+    './config/index.cjs',
+    './config/+prettier.cjs',
   ],
   env: {
     node: true,
