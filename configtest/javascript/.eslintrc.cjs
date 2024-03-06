@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  extends: ['../../config/index.js', '../../config/+prettier.js'],
+  extends: ['../../config/index.cjs', '../../config/+prettier.cjs'],
   env: {
     node: true,
   },
