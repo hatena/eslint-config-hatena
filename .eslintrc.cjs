@@ -1,7 +1,8 @@
-// @ts-check
+'use strict';
 
-/** @type import('eslint').Linter.BaseConfig */
-module.exports = {
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
   root: true,
   extends: [
     // basic
@@ -14,4 +15,12 @@ module.exports = {
   rules: {
     'import/no-default-export': 0,
   },
-};
+  overrides: [
+    {
+      files: ['*.cjs'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
+});

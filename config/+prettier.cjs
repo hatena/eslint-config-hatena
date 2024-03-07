@@ -1,6 +1,7 @@
-// @ts-check
+'use strict';
 
-/** @type import('eslint').Linter.BaseConfig */
-module.exports = {
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
   extends: ['prettier'],
-};
+});

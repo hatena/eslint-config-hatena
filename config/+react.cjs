@@ -1,22 +1,10 @@
-// @ts-check
+'use strict';
 
-/** @type import('eslint').Linter.ConfigOverride */
-const configOverrideForTS = {
-  files: ['*.ts', '*.tsx'],
-  rules: {
-    // TypeScript では propTypes は使わず TypeScript の型注釈を使えば良いので off にする
-    'react/prop-types': 0,
-  },
-};
+const { defineConfig } = require('eslint-define-config');
+const { __internal__rules: rules } = require('../lib/index.cjs');
 
-/** @type import('eslint').Linter.BaseConfig */
-module.exports = {
+module.exports = defineConfig({
   plugins: ['react', 'react-hooks'],
-  extends: [
-    // react
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -30,10 +18,11 @@ module.exports = {
       version: 'detect',
     },
   },
-  rules: {
-    // react
-    // コーディングスタイル統一のため、`<Component />` の形式で記述できる場合はそのように記述する
-    'react/self-closing-comp': 2,
-  },
-  overrides: [configOverrideForTS],
-};
+  rules: rules.react,
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: rules.typescriptReact,
+    },
+  ],
+});
