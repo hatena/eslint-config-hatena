@@ -3,7 +3,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 
 export const rules: Partial<Rules> = {
-  ...tsPlugin.configs['eslint-recommended'].rules,
+  ...tsPlugin.configs['eslint-recommended'].overrides?.[0].rules,
   ...tsPlugin.configs['recommended-type-checked'].rules,
   ...importPlugin.configs.typescript.rules,
 
