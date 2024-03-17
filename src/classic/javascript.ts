@@ -1,7 +1,6 @@
-// @ts-check
+import type { ESLint } from 'eslint';
 
-/** @type import('eslint').Linter.BaseConfig */
-module.exports = {
+const config: ESLint.ConfigData = {
   plugins: ['import'],
   extends: [
     // eslint
@@ -60,3 +59,5 @@ module.exports = {
     'import/order': [2, { alphabetize: { order: 'asc' } }],
   },
 };
+
+export default config;

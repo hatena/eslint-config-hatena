@@ -9,28 +9,35 @@
     "registry": "https://npm.pkg.github.com"
   },
   "type": "module",
-  "main": "config/index.cjs",
+  "main": "classic/index.cjs",
   "exports": {
-    ".": "./config/index.cjs",
-    "./+prettier": "./config/+prettier.cjs",
-    "./+react": "./config/+react.cjs",
-    "./+typescript": "./config/+typescript.cjs"
+    ".": "./classic/index.cjs",
+    "./+prettier": "./classic/+prettier.cjs",
+    "./+react": "./classic/+react.cjs",
+    "./+typescript": "./classic/+typescript.cjs"
   },
   "files": [
-    "config"
+    "lib",
+    "classic",
+    "src",
+    "!src/**/*.{test,spec}.{ts,tsx}",
+    "!src/**/__tests__"
   ],
   "scripts": {
-    "format": "prettier --write config '*.js' '*.cjs'",
-    "format:check": "prettier --check config '*.js' '*.cjs'",
-    "lint": "eslint --fix --ext .js,.cjs config '*.js' '*.cjs'",
-    "lint:check": "eslint --ext .js,.cjs config '*.js' '*.cjs'",
+    "format": "prettier --write src classic '*.js' '*.cjs'",
+    "format:check": "prettier --check src classic '*.js' '*.cjs'",
+    "lint": "eslint --fix --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
+    "lint:check": "eslint --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsup",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",
     "configtest:typescript": "./configtest/typescript/run.sh",
     "configtest:typescript-react": "./configtest/typescript-react/run.sh",
-    "prepublishOnly": "run-s format:check lint:check configtest"
+    "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
   },
   "dependencies": {
+    "@types/eslint": "^8.56.5",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "eslint-config-prettier": "^9.1.0",
@@ -58,12 +65,14 @@
     }
   },
   "devDependencies": {
+    "@hatena/eslint-config-hatena-stable": "https://github.com/hatena/eslint-config-hatena.git#v1.0.0",
     "@hatena/prettier-config-hatena": "https://github.com/hatena/prettier-config-hatena.git#v1.0.0",
     "@types/react": "^18.2.63",
     "eslint": "^8.57.0",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
+    "tsup": "^8.0.2",
     "typescript": "~5.3.3"
   }
 }
