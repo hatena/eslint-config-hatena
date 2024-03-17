@@ -9,5 +9,6 @@ module.exports = {
   },
   rules: {
     'import/no-default-export': 0,
+    '@typescript-eslint/naming-convention': 0,
   },
 };

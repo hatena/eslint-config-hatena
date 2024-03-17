@@ -37,6 +37,7 @@
     "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
   },
   "dependencies": {
+    "@types/eslint": "^8.56.5",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "eslint-config-prettier": "^9.1.0",

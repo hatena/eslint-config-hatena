@@ -1,6 +1,3 @@
-// @ts-check
+const { __internal_classicConfig: config } = require('../lib/index.cjs');
 
-/** @type import('eslint').Linter.BaseConfig */
-module.exports = {
-  extends: ['prettier'],
-};
+module.exports = config.prettier;
