@@ -11,11 +11,6 @@ import rules from '../rules';
 export type ConfigOptions = Readonly<
   Partial<{
     /**
-     * 拡張子 .js のファイル種別 (languageOptions.sourceType)
-     * デフォルト: module
-     */
-    jsSourceType: 'script' | 'module' | 'commonjs' | undefined;
-    /**
      * TypeScript の設定ファイル (languageOptions.parserOptions.project)
      * デフォルト: ./tsconfig.json
      */
@@ -40,7 +35,6 @@ export type ConfigOptions = Readonly<
  * @returns 設定の配列
  */
 export function config(options: ConfigOptions, configs?: readonly Linter.FlatConfig[]): Linter.FlatConfig[] {
-  const jsSourceType = options?.jsSourceType ?? 'module';
   const tsProject = options?.tsProject ?? './tsconfig.json';
   const react = options?.react ?? false;
   const prettier = options?.prettier ?? true;
@@ -60,6 +54,7 @@ export function config(options: ConfigOptions, configs?: readonly Linter.FlatCon
       files: ['**/*.{js,jsx,cjs,mjs}', '**/*.{ts,tsx,cts,mts}'],
       languageOptions: {
         ecmaVersion: 2020,
+        parserOptions: react ? { ecmaFeatures: { jsx: true } } : {},
         globals: {
           ...globals.es2020,
           ...(react ? globals.browser : {}),
@@ -70,13 +65,7 @@ export function config(options: ConfigOptions, configs?: readonly Linter.FlatCon
       },
     },
     {
-      files: ['**/*.js'],
-      languageOptions: {
-        sourceType: jsSourceType,
-      },
-    },
-    {
-      files: ['**/*.jsx'],
+      files: ['**/*.{js,jsx,mjs}'],
       languageOptions: {
         sourceType: 'module',
       },
@@ -88,12 +77,6 @@ export function config(options: ConfigOptions, configs?: readonly Linter.FlatCon
       },
     },
     {
-      files: ['**/*.mjs'],
-      languageOptions: {
-        sourceType: 'module',
-      },
-    },
-    {
       files: ['**/*.{ts,tsx,cts,mts}'],
       languageOptions: {
         sourceType: 'module',
@@ -102,12 +85,6 @@ export function config(options: ConfigOptions, configs?: readonly Linter.FlatCon
       },
       settings: {
         ...importPlugin.configs.typescript.settings,
-      },
-    },
-    {
-      files: ['**/*.{js,jsx,cjs,mjs}', '**/*.{ts,tsx,cts,mts}'],
-      languageOptions: {
-        parserOptions: react ? { ecmaFeatures: { jsx: true } } : {},
       },
     },
     // # ルール設定
