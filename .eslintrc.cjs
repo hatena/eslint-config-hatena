@@ -1,6 +1,8 @@
 // @ts-check
 
-/** @type import('eslint').Linter.BaseConfig */
+'use strict';
+
+/** @type import('eslint').ESLint.ConfigData */
 module.exports = {
   root: true,
   extends: ['@hatena/hatena-stable', '@hatena/hatena-stable/+typescript', '@hatena/hatena-stable/+prettier'],
@@ -11,4 +13,12 @@ module.exports = {
     'import/no-default-export': 0,
     '@typescript-eslint/naming-convention': 0,
   },
+  overrides: [
+    {
+      files: ['*.cjs'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
 };
