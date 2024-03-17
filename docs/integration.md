@@ -33,6 +33,14 @@ prettier と併用している場合は以下のように記述すると良い�
 }
 ```
 
+Flat Config を利用する場合は、以下の設定も有効にしておく必要があります。
+
+```json
+{
+  "eslint.experimental.useFlatConfig": true
+}
+```
+
 ## prettier
 
 eslint-config-hatena では prettier と競合する format に関する rule が off になっています。ESLint だけでは未フォーマットのコードを検知したり、format したりできないので、以下のように npm-scripts を別途用意しておくと良いでしょう。

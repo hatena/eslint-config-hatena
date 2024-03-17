@@ -1,5 +1,7 @@
 # 使い方
 
+## `.eslintrc` を使う場合
+
 - このライブラリでは `@hatena/hatena/+typescript` や `@hatena/hatena/+react` など複数の config を提供しています
   - ツール/ライブラリの単位で小分けになっています
   - プロジェクトで利用しているツールやライブラリに合わせて対応する config を extends してください
@@ -43,7 +45,7 @@ module.exports = {
 
 <!-- prettier-ignore-end -->
 
-## `@hatena/hatena`
+### `@hatena/hatena`
 
 ![required YES](https://img.shields.io/badge/required-YES-red) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/index.js)
 
@@ -66,7 +68,7 @@ module.exports = {
 };
 ```
 
-## `@hatena/hatena/+typescript`
+### `@hatena/hatena/+typescript`
 
 ![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+typescript.js)
 
@@ -102,14 +104,84 @@ module.exports = {
 };
 ```
 
-## `@hatena/hatena/+react`
+### `@hatena/hatena/+react`
 
 ![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+react.js)
 
 React を利用しているプロジェクト向けの config です。
 
-## `@hatena/hatena/+prettier`
+### `@hatena/hatena/+prettier`
 
 ![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+prettier.js)
 
 prettier を利用しているプロジェクト向けの config です。
+
+## `eslint.config.js` (Flat Config) を使う場合
+
+Flat Config に対しては `@hatena/eslint-config-hatena/flat` から設定を作成するためのビルダー関数を提供しています。
+
+最も簡単な利用方法は以下のようになります。
+
+```javascript
+import config from '@hatena/eslint-config-hatena/flat';
+
+export default config();
+```
+
+これは `.eslintrc` での以下の設定に相当します。
+
+```javascript
+module.exports = {
+  root: true,
+  extends: ['@hatena/hatena', '@hatena/hatena/+typescript', '@hatena/hatena/+prettier'],
+};
+```
+
+### TypeScript
+
+TypeScript に関連した設定はデフォルトで有効になっているため、特別に設定を追加する必要はありません。
+
+TypeScript の設定ファイルはデフォルトでは `./tsconfig.json` が使われます。このファイルを変更する場合は `tsProject` オプションを使用してください。
+
+```javascript
+export default config({
+  tsProject: './tsconfig.lint.json',
+});
+```
+
+### React
+
+React に関連した設定やルールを有効化するには、`react` オプションを有効化してください。
+
+```javascript
+export default config({
+  react: true,
+});
+```
+
+### Prettier
+
+デフォルトでは Prettier を併用することを想定して、Prettier と衝突するフォーマットに関するルールを全て無効化するようになっています。
+
+Prettier を使用せず、ESLint を使ってフォーマットを行いたい場合は、`prettier` オプションを無効化した上でフォーマットに関するルールを有効化してください。
+
+```javascript
+export default config({
+  prettier: false,
+});
+```
+
+### カスタム設定
+
+ビルダー関数の第二引数には、カスタム設定の配列を与えることができます。プロジェクト固有の設定はここに追加するのがおすすめです。
+
+```javascript
+export default config({}, [
+  {
+    files: ['src/**/*.js'],
+    rules: {
+      'no-console': 0,
+    },
+  },
+]);
+```
