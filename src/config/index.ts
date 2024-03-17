@@ -1,9 +1,12 @@
+import jsPlugin from '@eslint/js';
 import type { ESLint, Linter } from 'eslint';
 import prettierConfig from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import reactPlugin from 'eslint-plugin-react';
 import reacHookstPlugin from 'eslint-plugin-react-hooks';
+import globals from 'globals';
 import tsEslint from 'typescript-eslint';
+import rules from '../rules';
 
 export type ConfigOptions = Readonly<
   Partial<{
@@ -14,7 +17,7 @@ export type ConfigOptions = Readonly<
     jsSourceType: 'script' | 'module' | 'commonjs' | undefined;
     /**
      * TypeScript の設定ファイル (languageOptions.parserOptions.project)
-     * デフォルト: true (自動で tsconfig.json を読む)
+     * デフォルト: ./tsconfig.json
      */
     tsProject: boolean | string | string[] | undefined;
     /**
@@ -33,11 +36,11 @@ export type ConfigOptions = Readonly<
  */
 export function config(options: ConfigOptions, configs?: readonly Linter.FlatConfig[]): Linter.FlatConfig[] {
   const jsSourceType = options?.jsSourceType ?? 'module';
-  const tsProject = options?.tsProject ?? true;
+  const tsProject = options?.tsProject ?? './tsconfig.json';
   const prettier = options?.prettier ?? true;
 
   return [
-    // プラグインを有効化
+    // # Linter 自体の設定
     {
       plugins: {
         '@typescript-eslint': tsEslint.plugin as ESLint.Plugin,
@@ -46,11 +49,22 @@ export function config(options: ConfigOptions, configs?: readonly Linter.FlatCon
         'react-hooks': reacHookstPlugin,
       },
     },
-    // 言語設定
+    // # 言語ごとの構文や実行環境などの設定
     {
       files: ['**/*.js'],
       languageOptions: {
         sourceType: jsSourceType,
+      },
+    },
+    {
+      files: ['**/*.jsx'],
+      languageOptions: {
+        sourceType: 'module',
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
       },
     },
     {
@@ -60,24 +74,52 @@ export function config(options: ConfigOptions, configs?: readonly Linter.FlatCon
       },
     },
     {
-      files: ['**/*.mjs', '**/*.{ts,tsx,cts,ctsx,mts,mtsx}'],
+      files: ['**/*.mjs'],
       languageOptions: {
         sourceType: 'module',
       },
     },
     {
-      files: ['**/*.{ts,tsx,cts,ctsx,mts,mtsx}'],
+      files: ['**/*.{ts,tsx,cts,mts}'],
       languageOptions: {
+        sourceType: 'module',
         parser: tsEslint.parser as Linter.FlatConfigParserModule,
-        parserOptions: {
-          ...(tsProject ? { project: tsProject } : {}),
+        parserOptions: tsProject ? { project: tsProject } : {},
+      },
+      settings: {
+        ...importPlugin.configs.typescript.settings,
+      },
+    },
+    {
+      files: ['**/*.{js,jsx,cjs,mjs}', '**/*.{ts,tsx,cts,mts}'],
+      languageOptions: {
+        ecmaVersion: 2020,
+        globals: {
+          ...globals.es2020,
         },
       },
     },
-    // TODO: configs here
-    // カスタム設定
+    // # ルール設定
+    ...map({ files: ['**/*.{js,jsx,cjs,mjs}', '**/*.{ts,tsx,cts,mts}'] }, [
+      { rules: jsPlugin.configs.recommended.rules },
+      { rules: importPlugin.configs.recommended.rules },
+      { rules: rules.javascript },
+    ]),
+    ...map({ files: ['**/*.{ts,tsx,cts,mts}'] }, [
+      // languageOptions なども含まれるが上で設定しているものと重複するので, ここでは rules のみに絞る
+      ...tsEslint.configs.recommendedTypeChecked.flatMap((config) =>
+        config.rules ? [{ rules: config.rules as Linter.RulesRecord }] : [],
+      ),
+      { rules: importPlugin.configs.typescript.rules },
+      { rules: rules.typescript },
+    ]),
+    // # カスタム設定
     ...(configs ?? []),
-    // フォーマットに関するルールを無効化
+    // # フォーマットに関するルールを無効化
     ...(prettier ? [{ rules: prettierConfig.rules }] : []),
   ];
+}
+
+function map(base: Linter.FlatConfig, configs: readonly Linter.FlatConfig[]): Linter.FlatConfig[] {
+  return configs.map((config) => ({ ...base, ...config }));
 }

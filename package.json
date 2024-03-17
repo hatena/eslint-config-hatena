@@ -47,14 +47,17 @@
     "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
   },
   "dependencies": {
+    "@eslint/js": "^8.57.0",
     "@types/eslint": "^8.56.5",
     "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "globals": "^14.0.0",
     "typescript-eslint": "^7.2.0"
   },
   "peerDependencies": {

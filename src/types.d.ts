@@ -1,6 +1,16 @@
 declare module 'eslint-plugin-import' {
-  import type { ESLint } from 'eslint';
-  const plugin: ESLint.Plugin;
+  import type { ESLint, Linter } from 'eslint';
+  const plugin: ESLint.Plugin & {
+    configs: {
+      recommended: {
+        rules: Linter.RulesRecord;
+      };
+      typescript: {
+        rules: Linter.RulesRecord;
+        settings: { [name: string]: unknown };
+      };
+    };
+  };
   export = plugin;
 }
 

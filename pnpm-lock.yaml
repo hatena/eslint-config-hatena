@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@eslint/js':
+    specifier: ^8.57.0
+    version: 8.57.0
   '@types/eslint':
     specifier: ^8.56.5
     version: 8.56.5
   '@types/eslint-config-prettier':
     specifier: ^6.11.3
     version: 6.11.3
+  '@types/eslint__js':
+    specifier: ^8.42.3
+    version: 8.42.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.2.0
     version: 7.2.0(@typescript-eslint/parser@7.2.0)(eslint@8.57.0)(typescript@5.4.2)
@@ -29,6 +35,9 @@ dependencies:
   eslint-plugin-react-hooks:
     specifier: ^4.6.0
     version: 4.6.0(eslint@8.57.0)
+  globals:
+    specifier: ^14.0.0
+    version: 14.0.0
   typescript-eslint:
     specifier: ^7.2.0
     version: 7.2.0(eslint@8.57.0)(typescript@5.4.2)
@@ -508,6 +517,12 @@ packages:
     dependencies:
       '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
+    dev: false
+
+  /@types/eslint__js@8.42.3:
+    resolution: {integrity: sha512-alfG737uhmPdnvkrLdZLcEKJ/B8s9Y4hrZ+YAdzUeoArBlSUERA2E87ROfOaS4jd/C45fzOoZzidLc1IPwLqOw==}
+    dependencies:
+      '@types/eslint': 8.56.5
     dev: false
 
   /@types/estree@1.0.5:
@@ -1618,6 +1633,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       type-fest: 0.20.2
+
+  /globals@14.0.0:
+    resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+    dev: false
 
   /globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}
