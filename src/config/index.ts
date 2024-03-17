@@ -94,8 +94,8 @@ export function config(options?: ConfigOptions, configs?: readonly Linter.FlatCo
       { rules: rules.javascript },
       ...(react
         ? [
-            { rules: reactPlugin.configs.recommended },
-            { rules: reactHooksPlugin.configs.recommended },
+            { rules: reactPlugin.configs.recommended.rules },
+            { rules: reactHooksPlugin.configs.recommended.rules },
             { rules: rules.react },
           ]
         : []),
