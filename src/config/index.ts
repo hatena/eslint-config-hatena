@@ -34,7 +34,7 @@ export type ConfigOptions = Readonly<
  * @param configs カスタム設定の配列
  * @returns 設定の配列
  */
-export function config(options: ConfigOptions, configs?: readonly Linter.FlatConfig[]): Linter.FlatConfig[] {
+export function config(options?: ConfigOptions, configs?: readonly Linter.FlatConfig[]): Linter.FlatConfig[] {
   const tsProject = options?.tsProject ?? './tsconfig.json';
   const react = options?.react ?? false;
   const prettier = options?.prettier ?? true;
