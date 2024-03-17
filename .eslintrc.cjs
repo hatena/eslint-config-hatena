@@ -11,6 +11,7 @@ module.exports = {
   },
   rules: {
     'import/no-default-export': 0,
+    'import/no-named-as-default-member': 0,
     '@typescript-eslint/naming-convention': 0,
   },
   overrides: [
@@ -18,6 +19,14 @@ module.exports = {
       files: ['*.cjs'],
       parserOptions: {
         sourceType: 'script',
+      },
+    },
+    {
+      files: ['*.ts'],
+      settings: {
+        'import/resolver': {
+          typescript: {},
+        },
       },
     },
   ],
