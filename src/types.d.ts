@@ -16,12 +16,24 @@ declare module 'eslint-plugin-import' {
 
 declare module 'eslint-plugin-react' {
   import type { ESLint } from 'eslint';
-  const plugin: ESLint.Plugin;
+  const plugin: ESLint.Plugin & {
+    configs: {
+      recommended: {
+        rules: Linter.RulesRecord;
+      };
+    };
+  };
   export = plugin;
 }
 
 declare module 'eslint-plugin-react-hooks' {
   import type { ESLint } from 'eslint';
-  const plugin: ESLint.Plugin;
+  const plugin: ESLint.Plugin & {
+    configs: {
+      recommended: {
+        rules: Linter.RulesRecord;
+      };
+    };
+  };
   export = plugin;
 }
