@@ -7,11 +7,7 @@ const config: ESLint.ConfigData = {
       // *.js などではこれらのルールが適用されないようにする
       files: ['*.ts', '*.tsx'],
       plugins: ['@typescript-eslint'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:import/typescript',
-      ],
+      extends: ['plugin:@typescript-eslint/recommended-type-checked', 'plugin:import/typescript'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         // tsconfig.json の場所はプロジェクトによって異なるため、本来はプロジェクトに合わせて
