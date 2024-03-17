@@ -9,25 +9,25 @@
     "registry": "https://npm.pkg.github.com"
   },
   "type": "module",
-  "main": "config/index.cjs",
+  "main": "classic/index.cjs",
   "exports": {
-    ".": "./config/index.cjs",
-    "./+prettier": "./config/+prettier.cjs",
-    "./+react": "./config/+react.cjs",
-    "./+typescript": "./config/+typescript.cjs"
+    ".": "./classic/index.cjs",
+    "./+prettier": "./classic/+prettier.cjs",
+    "./+react": "./classic/+react.cjs",
+    "./+typescript": "./classic/+typescript.cjs"
   },
   "files": [
     "lib",
-    "config",
+    "classic",
     "src",
     "!src/**/*.{test,spec}.{ts,tsx}",
     "!src/**/__tests__"
   ],
   "scripts": {
-    "format": "prettier --write src config '*.js' '*.cjs'",
-    "format:check": "prettier --check src config '*.js' '*.cjs'",
-    "lint": "eslint --fix --ext .js,.cjs,.ts src config '*.js' '*.cjs'",
-    "lint:check": "eslint --ext .js,.cjs,.ts src config '*.js' '*.cjs'",
+    "format": "prettier --write src classic '*.js' '*.cjs'",
+    "format:check": "prettier --check src classic '*.js' '*.cjs'",
+    "lint": "eslint --fix --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
+    "lint:check": "eslint --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "build": "tsup",
     "configtest": "run-s -c 'configtest:*'",
