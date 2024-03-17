@@ -21,6 +21,14 @@ const config: ESLint.ConfigData = {
     es2020: true,
   },
   rules: rules.javascript,
+  overrides: [
+    {
+      files: ['*.cjs'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
 };
 
 export default config;
