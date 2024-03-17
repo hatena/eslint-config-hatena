@@ -53,9 +53,16 @@ export function config(options?: ConfigOptions, configs?: readonly Linter.FlatCo
     {
       files: ['**/*.{js,jsx,cjs,mjs}', '**/*.{ts,tsx,cts,mts}'],
       languageOptions: {
+        // ES2020 の構文がパースできるように。
+        // NOTE: アプリケーションによってサポートされている ECMAScript のバージョンは違うので、
+        // 本来であればアプリケーションで利用している Node.js のバージョンやサポートブラウザの
+        // バージョンに合わせて上書きするべきするべき設定だが、いちいち上書きするのも面倒なので、
+        // ひとまず一番最新のバージョンが利用可能であるとしておき、必要に応じてアプリケーションサイドで
+        // 上書きしてもらう、という運用にする
         ecmaVersion: 2020,
         parserOptions: react ? { ecmaFeatures: { jsx: true } } : {},
         globals: {
+          // `ecmaVersion` に揃えておく
           ...globals.es2020,
           ...(react ? globals.browser : {}),
         },
@@ -67,6 +74,8 @@ export function config(options?: ConfigOptions, configs?: readonly Linter.FlatCo
     {
       files: ['**/*.{js,jsx,mjs}'],
       languageOptions: {
+        // 現代では type="script" な環境で JS を書くことはまずないので、
+        // デフォルトで type="module" なJSであるとして lint する
         sourceType: 'module',
       },
     },
