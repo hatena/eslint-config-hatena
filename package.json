@@ -14,7 +14,17 @@
     ".": "./classic/index.cjs",
     "./+prettier": "./classic/+prettier.cjs",
     "./+react": "./classic/+react.cjs",
-    "./+typescript": "./classic/+typescript.cjs"
+    "./+typescript": "./classic/+typescript.cjs",
+    "./flat": {
+      "import": {
+        "default": "./lib/index.js",
+        "types": "./lib/index.d.ts"
+      },
+      "require": {
+        "default": "./lib/index.cjs",
+        "types": "./lib/index.d.cts"
+      }
+    }
   },
   "files": [
     "lib",
@@ -34,16 +44,22 @@
     "configtest:javascript": "./configtest/javascript/run.sh",
     "configtest:typescript": "./configtest/typescript/run.sh",
     "configtest:typescript-react": "./configtest/typescript-react/run.sh",
+    "configtest:classic": "./configtest/classic/run.sh",
     "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
   },
   "dependencies": {
+    "@eslint/js": "^8.57.0",
     "@types/eslint": "^8.56.5",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "globals": "^14.0.0",
+    "typescript-eslint": "^7.2.0"
   },
   "peerDependencies": {
     "eslint": ">=6.8.0",
@@ -69,6 +85,7 @@
     "@hatena/prettier-config-hatena": "https://github.com/hatena/prettier-config-hatena.git#v1.0.0",
     "@types/react": "^18.2.66",
     "eslint": "^8.57.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",

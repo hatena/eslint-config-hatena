@@ -1,12 +1,9 @@
 import type { ESLint } from 'eslint';
+import rules from '../rules';
 
 const config: ESLint.ConfigData = {
   plugins: ['react', 'react-hooks'],
-  extends: [
-    // react
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -20,18 +17,11 @@ const config: ESLint.ConfigData = {
       version: 'detect',
     },
   },
-  rules: {
-    // react
-    // コーディングスタイル統一のため、`<Component />` の形式で記述できる場合はそのように記述する
-    'react/self-closing-comp': 2,
-  },
+  rules: rules.react,
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      rules: {
-        // TypeScript では propTypes は使わず TypeScript の型注釈を使えば良いので off にする
-        'react/prop-types': 0,
-      },
+      rules: rules.typescriptReact,
     },
   ],
 };
