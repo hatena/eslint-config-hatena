@@ -8,50 +8,45 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "type": "module",
-  "main": "classic/index.cjs",
+  "type": "commonjs",
+  "main": "lib/classic/javascript.js",
   "exports": {
-    ".": "./classic/index.cjs",
-    "./+prettier": "./classic/+prettier.cjs",
-    "./+react": "./classic/+react.cjs",
-    "./+typescript": "./classic/+typescript.cjs",
+    ".": "./lib/classic/javascript.js",
+    "./+prettier": "./lib/classic/prettier.js",
+    "./+react": "./lib/classic/react.js",
+    "./+typescript": "./lib/classic/typescript.js",
     "./flat": {
       "import": {
-        "default": "./lib/index.js",
+        "default": "./lib/index.mjs",
         "types": "./lib/index.d.ts"
       },
       "require": {
-        "default": "./lib/index.cjs",
-        "types": "./lib/index.d.cts"
+        "default": "./lib/index.js",
+        "types": "./lib/index.d.ts"
       }
     }
   },
   "files": [
     "lib",
-    "classic",
-    "src",
-    "!src/**/*.{test,spec}.{ts,tsx}",
-    "!src/**/__tests__"
+    "!lib/**/*.{test,spec}.js",
+    "!lib/**/__tests__"
   ],
   "scripts": {
-    "format": "prettier --write src classic '*.js' '*.cjs'",
-    "format:check": "prettier --check src classic '*.js' '*.cjs'",
-    "lint": "eslint --fix --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
-    "lint:check": "eslint --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
+    "format": "prettier --write lib '*.js'",
+    "format:check": "prettier --check lib '*.js'",
+    "lint": "eslint --fix lib '*.js'",
+    "lint:check": "eslint lib '*.js'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "build": "tsup",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",
     "configtest:typescript": "./configtest/typescript/run.sh",
     "configtest:typescript-react": "./configtest/typescript-react/run.sh",
     "configtest:classic": "./configtest/classic/run.sh",
-    "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
+    "prepublishOnly": "run-s format:check lint:check typecheck configtest"
   },
   "dependencies": {
     "@eslint/js": "^8.57.0",
     "@types/eslint": "^8.56.5",
-    "@types/eslint-config-prettier": "^6.11.3",
-    "@types/eslint__js": "^8.42.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint-config-prettier": "^9.1.0",
@@ -83,13 +78,15 @@
   "devDependencies": {
     "@hatena/eslint-config-hatena-stable": "https://github.com/hatena/eslint-config-hatena.git#v1.0.0",
     "@hatena/prettier-config-hatena": "https://github.com/hatena/prettier-config-hatena.git#v1.0.0",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.11.28",
     "@types/react": "^18.2.66",
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
-    "tsup": "^8.0.2",
     "typescript": "~5.4.2"
   }
 }

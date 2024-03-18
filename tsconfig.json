@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "rootDir": "src",
-    "outDir": "lib",
+    "allowJs": true,
+    "checkJs": true,
     "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "lib": ["esnext"],
     "jsx": "react-jsx",
@@ -16,5 +16,6 @@
     "declarationMap": false,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"]
+  "include": ["**/*"],
+  "exclude": ["configtest"]
 }

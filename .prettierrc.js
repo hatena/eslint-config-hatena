@@ -1,3 +1,5 @@
-import config from '@hatena/prettier-config-hatena';
+'use strict';
 
-export default config;
+const config = require('@hatena/prettier-config-hatena');
+
+module.exports = config;
