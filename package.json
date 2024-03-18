@@ -34,8 +34,8 @@
   "scripts": {
     "format": "prettier --write lib '*.js'",
     "format:check": "prettier --check lib '*.js'",
-    "lint": "eslint --fix --ext .js,.cjs,.ts lib '*.js'",
-    "lint:check": "eslint --ext .js,.cjs,.ts lib '*.js'",
+    "lint": "eslint --fix lib '*.js'",
+    "lint:check": "eslint lib '*.js'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",
