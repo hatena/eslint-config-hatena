@@ -39,13 +39,12 @@
     "lint": "eslint --fix --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
     "lint:check": "eslint --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "build": "tsup",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",
     "configtest:typescript": "./configtest/typescript/run.sh",
     "configtest:typescript-react": "./configtest/typescript-react/run.sh",
     "configtest:classic": "./configtest/classic/run.sh",
-    "prepublishOnly": "run-s format:check lint:check typecheck build configtest"
+    "prepublishOnly": "run-s format:check lint:check typecheck configtest"
   },
   "dependencies": {
     "@eslint/js": "^8.57.0",
@@ -89,7 +88,6 @@
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
-    "tsup": "^8.0.2",
     "typescript": "~5.4.2"
   }
 }
