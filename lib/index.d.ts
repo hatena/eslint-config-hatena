@@ -1,11 +1,4 @@
-import { ESLint, Linter } from 'eslint';
-
-declare const classicConfig: {
-  javascript: ESLint.ConfigData;
-  prettier: ESLint.ConfigData;
-  react: ESLint.ConfigData;
-  typescript: ESLint.ConfigData;
-};
+import { Linter } from 'eslint';
 
 type ConfigOptions = Readonly<
   Partial<{
@@ -35,4 +28,5 @@ type ConfigOptions = Readonly<
  */
 declare function config(options?: ConfigOptions, configs?: readonly Linter.FlatConfig[]): Linter.FlatConfig[];
 
-export { type ConfigOptions, classicConfig as __internal_classicConfig, config, config as default };
+export { type ConfigOptions, config };
+export default config;

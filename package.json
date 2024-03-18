@@ -8,35 +8,34 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "type": "module",
-  "main": "classic/index.cjs",
+  "type": "commonjs",
+  "main": "lib/classic/javascript.js",
   "exports": {
-    ".": "./classic/index.cjs",
-    "./+prettier": "./classic/+prettier.cjs",
-    "./+react": "./classic/+react.cjs",
-    "./+typescript": "./classic/+typescript.cjs",
+    ".": "./lib/classic/javascript.js",
+    "./+prettier": "./lib/classic/prettier.js",
+    "./+react": "./lib/classic/react.js",
+    "./+typescript": "./lib/classic/typescript.js",
     "./flat": {
       "import": {
-        "default": "./lib/index.js",
+        "default": "./lib/index.mjs",
         "types": "./lib/index.d.ts"
       },
       "require": {
-        "default": "./lib/index.cjs",
-        "types": "./lib/index.d.cts"
+        "default": "./lib/index.js",
+        "types": "./lib/index.d.ts"
       }
     }
   },
   "files": [
     "lib",
     "!lib/**/*.{test,spec}.js",
-    "!lib/**/__tests__",
-    "classic"
+    "!lib/**/__tests__"
   ],
   "scripts": {
-    "format": "prettier --write lib classic '*.js' '*.cjs'",
-    "format:check": "prettier --check lib classic '*.js' '*.cjs'",
-    "lint": "eslint --fix --ext .js,.cjs,.ts lib classic '*.js' '*.cjs'",
-    "lint:check": "eslint --ext .js,.cjs,.ts lib classic '*.js' '*.cjs'",
+    "format": "prettier --write lib '*.js'",
+    "format:check": "prettier --check lib '*.js'",
+    "lint": "eslint --fix --ext .js,.cjs,.ts lib '*.js'",
+    "lint:check": "eslint --ext .js,.cjs,.ts lib '*.js'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",

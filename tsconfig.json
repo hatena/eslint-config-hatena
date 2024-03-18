@@ -16,5 +16,6 @@
     "declarationMap": false,
     "skipLibCheck": true
   },
-  "include": ["**/*"]
+  "include": ["**/*"],
+  "exclude": ["configtest"]
 }

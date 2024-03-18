@@ -19,7 +19,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.cjs'],
+      files: ['*.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },
