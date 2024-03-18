@@ -38,8 +38,8 @@ dependencies:
 
 devDependencies:
   '@hatena/eslint-config-hatena-stable':
-    specifier: https://github.com/hatena/eslint-config-hatena.git#v1.0.0
-    version: github.com/hatena/eslint-config-hatena/0f9a33f435478c905dfff99e8ebae299d8b1d18a(@typescript-eslint/eslint-plugin@7.2.0)(@typescript-eslint/parser@7.2.0)(eslint-config-prettier@9.1.0)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.34.1)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.2)
+    specifier: https://github.com/hatena/eslint-config-hatena.git#v2.0.1
+    version: github.com/hatena/eslint-config-hatena/25e9973f071028ee11a856c84608540145a5dde6(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.2)
   '@hatena/prettier-config-hatena':
     specifier: https://github.com/hatena/prettier-config-hatena.git#v1.0.0
     version: github.com/hatena/prettier-config-hatena/5c29d665ff10ae7885bb322be2b3b22749d8fb57(prettier@3.2.5)
@@ -1134,7 +1134,6 @@ packages:
   /globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
-    dev: false
 
   /globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}
@@ -1969,7 +1968,6 @@ packages:
       typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /typescript@5.4.2:
     resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
@@ -2055,41 +2053,23 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  github.com/hatena/eslint-config-hatena/0f9a33f435478c905dfff99e8ebae299d8b1d18a(@typescript-eslint/eslint-plugin@7.2.0)(@typescript-eslint/parser@7.2.0)(eslint-config-prettier@9.1.0)(eslint-plugin-import@2.29.1)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-react@7.34.1)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.2):
-    resolution: {tarball: https://codeload.github.com/hatena/eslint-config-hatena/tar.gz/0f9a33f435478c905dfff99e8ebae299d8b1d18a}
-    id: github.com/hatena/eslint-config-hatena/0f9a33f435478c905dfff99e8ebae299d8b1d18a
+  github.com/hatena/eslint-config-hatena/25e9973f071028ee11a856c84608540145a5dde6(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.4.2):
+    resolution: {tarball: https://codeload.github.com/hatena/eslint-config-hatena/tar.gz/25e9973f071028ee11a856c84608540145a5dde6}
+    id: github.com/hatena/eslint-config-hatena/25e9973f071028ee11a856c84608540145a5dde6
     name: '@hatena/eslint-config-hatena'
-    version: 1.0.0
-    engines: {node: '>=10.0.0', npm: '>=6.11.0', yarn: '>=1.13.0'}
+    version: 2.0.1
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': '>=2.31.0'
-      '@typescript-eslint/parser': '>=2.31.0'
       eslint: '>=6.8.0'
-      eslint-config-prettier: '>=8.0.0'
-      eslint-plugin-import: '>=2.20.2'
-      eslint-plugin-prettier: '*'
-      eslint-plugin-react: '>=7.19.0'
-      eslint-plugin-react-hooks: '>=4.0.0'
       prettier: '>=2.0.5'
       typescript: '>=3.9.3'
     peerDependenciesMeta:
-      '@typescript-eslint/eslint-plugin':
-        optional: true
-      '@typescript-eslint/parser':
-        optional: true
-      eslint-config-prettier:
-        optional: true
-      eslint-plugin-prettier:
-        optional: true
-      eslint-plugin-react:
-        optional: true
-      eslint-plugin-react-hooks:
-        optional: true
       prettier:
         optional: true
       typescript:
         optional: true
     dependencies:
+      '@eslint/js': 8.57.0
+      '@types/eslint': 8.56.5
       '@typescript-eslint/eslint-plugin': 7.2.0(@typescript-eslint/parser@7.2.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser': 7.2.0(eslint@8.57.0)(typescript@5.4.2)
       eslint: 8.57.0
@@ -2097,8 +2077,14 @@ packages:
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-react: 7.34.1(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
+      globals: 14.0.0
       prettier: 3.2.5
       typescript: 5.4.2
+      typescript-eslint: 7.2.0(eslint@8.57.0)(typescript@5.4.2)
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - supports-color
     dev: true
 
   github.com/hatena/prettier-config-hatena/5c29d665ff10ae7885bb322be2b3b22749d8fb57(prettier@3.2.5):
