@@ -1,6 +1,6 @@
 {
   "name": "@hatena/eslint-config-hatena",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ESLint config for @hatena",
   "repository": "https://github.com/hatena/eslint-config-hatena",
   "license": "MIT",
