@@ -28,16 +28,15 @@
   },
   "files": [
     "lib",
-    "classic",
-    "src",
-    "!src/**/*.{test,spec}.{ts,tsx}",
-    "!src/**/__tests__"
+    "!lib/**/*.{test,spec}.js",
+    "!lib/**/__tests__",
+    "classic"
   ],
   "scripts": {
-    "format": "prettier --write src classic '*.js' '*.cjs'",
-    "format:check": "prettier --check src classic '*.js' '*.cjs'",
-    "lint": "eslint --fix --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
-    "lint:check": "eslint --ext .js,.cjs,.ts src classic '*.js' '*.cjs'",
+    "format": "prettier --write lib classic '*.js' '*.cjs'",
+    "format:check": "prettier --check lib classic '*.js' '*.cjs'",
+    "lint": "eslint --fix --ext .js,.cjs,.ts lib classic '*.js' '*.cjs'",
+    "lint:check": "eslint --ext .js,.cjs,.ts lib classic '*.js' '*.cjs'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "configtest": "run-s -c 'configtest:*'",
     "configtest:javascript": "./configtest/javascript/run.sh",
@@ -49,8 +48,6 @@
   "dependencies": {
     "@eslint/js": "^8.57.0",
     "@types/eslint": "^8.56.5",
-    "@types/eslint-config-prettier": "^6.11.3",
-    "@types/eslint__js": "^8.42.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint-config-prettier": "^9.1.0",
@@ -82,6 +79,9 @@
   "devDependencies": {
     "@hatena/eslint-config-hatena-stable": "https://github.com/hatena/eslint-config-hatena.git#v1.0.0",
     "@hatena/prettier-config-hatena": "https://github.com/hatena/prettier-config-hatena.git#v1.0.0",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.11.28",
     "@types/react": "^18.2.66",
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.1",
