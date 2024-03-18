@@ -11,11 +11,6 @@ module.exports = config({}, [
     },
   },
   {
-    settings: {
-      'import/resolver': {
-        typescript: {},
-      },
-    },
     languageOptions: {
       globals: {
         ...globals.node,
