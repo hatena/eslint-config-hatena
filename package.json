@@ -53,7 +53,6 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "globals": "^14.0.0",
     "typescript-eslint": "^7.2.0"
   },
   "peerDependencies": {
@@ -83,6 +82,7 @@
     "@types/node": "^20.11.28",
     "@types/react": "^18.2.66",
     "eslint": "^8.57.0",
+    "globals": "^14.0.0",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
