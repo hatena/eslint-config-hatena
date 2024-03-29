@@ -18,7 +18,11 @@ declare module 'eslint-plugin-react' {
   import type { ESLint } from 'eslint';
   const plugin: ESLint.Plugin & {
     configs: {
-      recommended: {
+      'recommended': {
+        rules: Linter.RulesRecord;
+      };
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'jsx-runtime': {
         rules: Linter.RulesRecord;
       };
     };
