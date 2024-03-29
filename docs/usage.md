@@ -47,20 +47,19 @@ module.exports = {
 
 ### `@hatena/hatena`
 
-![required YES](https://img.shields.io/badge/required-YES-red) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/index.js)
+![required YES](https://img.shields.io/badge/required-YES-red) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/lib/classic/javascript.js)
 
-純粋な ECMAScript を lint するための rule をまとめた config です。[ESLint の `env`](https://eslint.org/docs/user-guide/configuring#specifying-environments) により、ソースコードが ES2020 に準拠しているものとして lint するよう構成されています。プロジェクトでターゲットとしている ECMAScript のバージョンが ES2020 より低い場合は、適時 `parserOptions.ecmaVersion` と `env` で設定を上書きして下さい。
+純粋な ECMAScript を lint するための rule をまとめた config です。
+
+[`env`](https://eslint.org/docs/user-guide/configuring#specifying-environments) は指定していませんので、プロジェクトでターゲットとしている ECMAScript のバージョンや環境に応じて、適宜 `env` を設定してください
 
 ```javascript
 module.exports = {
   root: true,
   extends: ['@hatena/hatena'],
-  parserOptions: {
-    ecmaVersion: 2019,
-  },
   env: {
-    es2019: true,
-    es2020: false,
+    es2024: true,
+    browser: true,
   },
   rules: {
     // プロジェクト固有のルールをここに書く
@@ -70,9 +69,9 @@ module.exports = {
 
 ### `@hatena/hatena/+typescript`
 
-![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+typescript.js)
+![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/lib/classic/typescript.js)
 
-TypeScript を利用しているプロジェクト向けの config です。この config を利用するにはプロジェクトで使用している `tsconfig.json` を `parserOptions.project` に記述する必要があります (省略すると `./tsconfig.json` が使われます)。
+TypeScript を利用しているプロジェクト向けの config です。
 
 ```javascript
 module.exports = {
@@ -88,7 +87,9 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parserOptions: {
-        project: './frontend/tsconfig.json',
+        // tsconfig.json を指定する必要がある場合はここに追加してください
+        // デフォルトでは対象ファイルに最も近い tsconfig.json が使用されます
+        // project: './frontend/tsconfig.json',
         // tsconfig.json が複数ある場合は配列で次のように指定して下さい
         // project: [
         //   './frontend/tsconfig.json',
@@ -106,13 +107,13 @@ module.exports = {
 
 ### `@hatena/hatena/+react`
 
-![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+react.js)
+![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/lib/classic/react.js)
 
 React を利用しているプロジェクト向けの config です。
 
 ### `@hatena/hatena/+prettier`
 
-![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/+prettier.js)
+![required no](https://img.shields.io/badge/required-no-inactive) [![see source](https://img.shields.io/badge/see-source-yellow)](https://github.com/hatena/eslint-config-hatena/blob/main/lib/classic/prettier.js)
 
 prettier を利用しているプロジェクト向けの config です。
 
@@ -179,6 +180,10 @@ export default config({
 export default config({}, [
   {
     files: ['src/**/*.js'],
+    env: {
+      es2024: true,
+      browser: true,
+    },
     rules: {
       'no-console': 0,
     },
