@@ -1,6 +1,6 @@
 'use strict';
 
-const { config } = require('@hatena/eslint-config-hatena-stable/flat');
+const { config } = require('@hatena/eslint-config-hatena/flat');
 const globals = require('globals');
 
 module.exports = config({}, [
