@@ -29,9 +29,6 @@ dependencies:
   eslint-plugin-react-hooks:
     specifier: ^4.6.0
     version: 4.6.0(eslint@8.57.0)
-  globals:
-    specifier: ^14.0.0
-    version: 14.0.0
   typescript-eslint:
     specifier: ^7.2.0
     version: 7.2.0(eslint@8.57.0)(typescript@5.4.3)
@@ -55,6 +52,9 @@ devDependencies:
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
+  globals:
+    specifier: ^14.0.0
+    version: 14.0.0
   npm-run-all2:
     specifier: ^6.1.2
     version: 6.1.2
@@ -1145,7 +1145,7 @@ packages:
   /globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
-    dev: false
+    dev: true
 
   /globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}
