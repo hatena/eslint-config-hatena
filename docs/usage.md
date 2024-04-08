@@ -177,12 +177,17 @@ export default config({
 ビルダー関数の第二引数には、カスタム設定の配列を与えることができます。プロジェクト固有の設定はここに追加するのがおすすめです。
 
 ```javascript
+import config from '@hatena/eslint-config-hatena/flat';
+import globals from 'globals';
+
 export default config({}, [
   {
     files: ['src/**/*.js'],
-    env: {
-      es2024: true,
-      browser: true,
+    languageOptions: {
+      globals: {
+        ...globals.es2021,
+        ...globals.browser,
+      },
     },
     rules: {
       'no-console': 0,
