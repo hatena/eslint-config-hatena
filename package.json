@@ -78,7 +78,7 @@
     "@hatena/prettier-config-hatena": "https://github.com/hatena/prettier-config-hatena.git#v1.0.0",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint__js": "^8.42.3",
-    "@types/node": "^20.12.2",
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.73",
     "eslint": "^8.57.0",
     "globals": "^14.0.0",
