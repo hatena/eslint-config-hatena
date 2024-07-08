@@ -33,7 +33,7 @@ URL 指定でインストールする方法と、GitHub Packages Registry から
   - `npm update` で更新できない
 
 ```bash
-npm i -D https://github.com/hatena/prettier-config-hatena.git#v2.1.0
+npm i -D https://github.com/hatena/prettier-config-hatena.git#v2.1.1
 ```
 
 ### GitHub Packages Registry からインストールする
