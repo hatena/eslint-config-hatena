@@ -26,7 +26,7 @@ type ConfigOptions = Readonly<
  * @param configs カスタム設定の配列
  * @returns 設定の配列
  */
-declare function config(options?: ConfigOptions, configs?: readonly Linter.FlatConfig[]): Linter.FlatConfig[];
+declare function config(options?: ConfigOptions, configs?: readonly Linter.Config[]): Linter.Config[];
 
 export { type ConfigOptions, config };
 export default config;
