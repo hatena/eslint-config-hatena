@@ -20,7 +20,4 @@ module.exports = config({}, [
       'import/no-default-export': 0,
     },
   },
-  {
-    ignores: ['!.prettierrc.js'],
-  },
 ]);
