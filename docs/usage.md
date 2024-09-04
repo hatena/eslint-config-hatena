@@ -192,6 +192,7 @@ export default config({
 ### カスタム設定
 
 ビルダー関数の第二引数には、カスタム設定の配列を与えることができます。プロジェクト固有の設定はここに追加するのがおすすめです。
+[typescript-eslint のユーティリティ](https://typescript-eslint.io/packages/typescript-eslint#config)をラップしているため、`extends` が利用できます。
 
 ```javascript
 import config from '@hatena/eslint-config-hatena/flat';
@@ -200,6 +201,7 @@ import globals from 'globals';
 export default config({}, [
   {
     files: ['src/**/*.js'],
+    extends: [somePlugin.recommended],
     languageOptions: {
       globals: {
         ...globals.es2021,
