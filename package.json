@@ -57,22 +57,12 @@
     "typescript-eslint": "^8.3.0"
   },
   "peerDependencies": {
-    "eslint": "^8.57.0 || ^9.0.0",
-    "prettier": ">=2.0.5",
-    "typescript": ">=3.9.3"
+    "eslint": "^8.57.0 || ^9.0.0"
   },
   "peerDependenciesMeta": {
     "eslint": {
       "autoInstall": false,
       "optional": false
-    },
-    "prettier": {
-      "autoInstall": false,
-      "optional": true
-    },
-    "typescript": {
-      "autoInstall": false,
-      "optional": true
     }
   },
   "devDependencies": {
