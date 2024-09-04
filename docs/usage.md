@@ -140,13 +140,30 @@ module.exports = {
 
 ### TypeScript
 
-TypeScript に関連した設定はデフォルトで有効になっているため、特別に設定を追加する必要はありません。
+TypeScript に関連した設定はデフォルトで有効になっているため、特別に設定を追加する必要はありません。TypeScript の設定ファイルはデフォルトでは `./tsconfig.json` が使われます。
 
-TypeScript の設定ファイルはデフォルトでは `./tsconfig.json` が使われます。このファイルを変更する場合は `tsProject` オプションを使用してください。
+ESLint を実行するディレクトリが `tsconfig.json` が配置されているディレクトリと異なり、うまく `tsconfig.json` を解決できない場合は、`tsconfigRootDir` を指定してください。
+
+```javascript
+export default config({
+  tsconfigRootDir: import.meta.dirname,
+});
+```
+
+参照する TypeScript の設定ファイルを変更する場合は `tsProject` オプションを使用してください。ただし、この設定をすると ESLint 以外のツールとの間で型情報の不一致が生まれる可能性があるため、非推奨です。
 
 ```javascript
 export default config({
   tsProject: './tsconfig.lint.json',
+});
+```
+
+typescript-eslint v8 から追加された [`projectService` オプション](https://typescript-eslint.io/packages/parser#projectservice)は、現在オプトインとして提供しています。使用する場合は `tsProjectService` を有効にしてください (`tsProject` よりも優先されます)。
+
+```javascript
+export default config({
+  tsProjectService: true,
+  tsconfigRootDir: import.meta.dirname,
 });
 ```
 
