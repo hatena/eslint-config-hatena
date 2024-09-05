@@ -21,7 +21,6 @@ declare module 'eslint-plugin-react' {
       'recommended': {
         rules: Linter.RulesRecord;
       };
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       'jsx-runtime': {
         rules: Linter.RulesRecord;
       };
