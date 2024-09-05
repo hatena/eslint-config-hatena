@@ -33,7 +33,7 @@ URL 指定でインストールする方法と、GitHub Packages Registry から
   - `npm update` で更新できない
 
 ```bash
-npm i -D https://github.com/hatena/eslint-config-hatena.git#v2.1.1
+npm i -D https://github.com/hatena/eslint-config-hatena.git#v3.0.0
 ```
 
 ### GitHub Packages Registry からインストールする
