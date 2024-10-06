@@ -60,6 +60,25 @@ export default config({
 });
 ```
 
+### Next.js
+
+Next.js に関連した設定やルールを有効化するには、`next` オプションを有効化してください。
+React に関連した設定やルールも同時に有効化されます。
+
+```javascript
+export default config({
+  next: true,
+});
+```
+
+Core Web Vitals に関するルールも有効化する場合は `'strict'` を指定してください ([参考](https://nextjs.org/docs/app/building-your-application/configuring/eslint#core-web-vitals))。
+
+```javascript
+export default config({
+  next: 'strict',
+});
+```
+
 ### Prettier
 
 デフォルトでは Prettier を併用することを想定して、Prettier と衝突するフォーマットに関するルールを全て無効化するようになっています。
