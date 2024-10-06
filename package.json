@@ -41,6 +41,7 @@
     "configtest:javascript": "./configtest/javascript/run.sh",
     "configtest:typescript": "./configtest/typescript/run.sh",
     "configtest:typescript-react": "./configtest/typescript-react/run.sh",
+    "configtest:next": "./configtest/next/run.sh",
     "configtest:classic": "./configtest/classic/run.sh",
     "prepublishOnly": "run-s format:check lint:check typecheck configtest"
   },
