@@ -40,3 +40,18 @@ declare module 'eslint-plugin-react-hooks' {
   };
   export = plugin;
 }
+
+declare module '@next/eslint-plugin-next' {
+  import type { ESLint } from 'eslint';
+  const plugin: ESLint.Plugin & {
+    configs: {
+      'recommended': {
+        rules: Linter.RulesRecord;
+      };
+      'core-web-vitals': {
+        rules: Linter.RulesRecord;
+      };
+    };
+  };
+  export = plugin;
+}
