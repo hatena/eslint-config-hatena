@@ -46,7 +46,6 @@
     "prepublishOnly": "run-s format:check lint:check typecheck configtest"
   },
   "dependencies": {
-    "@eslint/compat": "^1.2.2",
     "@eslint/js": "^9.13.0",
     "@next/eslint-plugin-next": "^15.0.1",
     "@types/eslint": "^9.6.1",
