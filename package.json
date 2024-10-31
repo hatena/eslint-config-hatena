@@ -68,7 +68,7 @@
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",
     "@types/eslint__js": "^8.42.3",
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.6",
     "@types/react": "^18.3.12",
     "eslint": "^9.13.0",
     "globals": "^15.11.0",
