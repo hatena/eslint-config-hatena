@@ -1,5 +1,6 @@
 import { ParserOptions } from '@typescript-eslint/parser';
-import { Config, ConfigWithExtends } from 'typescript-eslint';
+import { TSESLint } from '@typescript-eslint/utils';
+import { ConfigWithExtends } from 'typescript-eslint';
 
 type ConfigOptions = Readonly<
   Partial<{
@@ -37,13 +38,35 @@ type ConfigOptions = Readonly<
   }>
 >;
 
-/**
- * ESLint の設定を作る
- * @param options オプション
- * @param configs カスタム設定の配列
- * @returns 設定の配列
- */
-declare function config(options?: ConfigOptions, configs?: readonly ConfigWithExtends[]): Config[];
+type NextConfigOptions = Readonly<
+  Partial<{
+    /**
+     * true の場合, Core Web Vitals に関するルールを追加で有効にする.
+     * デフォルト: false
+     */
+    strict: boolean | undefined;
+  }>
+>;
 
-export { type ConfigOptions, config };
+declare const config: {
+  /**
+   * ESLint の設定を作る
+   * @param options オプション
+   * @param configs カスタム設定の配列
+   * @returns 設定の配列
+   */
+  (options?: ConfigOptions, configs?: readonly ConfigWithExtends[]): TSESLint.FlatConfig.ConfigArray;
+  /**
+   * React を使用するプロジェクト向けの設定
+   * @returns 設定の配列
+   */
+  react: () => TSESLint.FlatConfig.ConfigArray;
+  /**
+   * Next.js を使用するプロジェクト向けの設定. React 向けの設定も内包している.
+   * @returns 設定の配列
+   */
+  next: (options?: NextConfigOptions) => TSESLint.FlatConfig.ConfigArray;
+};
+
+export { type ConfigOptions, type NextConfigOptions, config };
 export default config;
