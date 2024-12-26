@@ -60,6 +60,22 @@ export default config({
 });
 ```
 
+ディレクトリごとに React に関する設定を有効化したい場合は、カスタム設定 (後述) で `config.react()` を拡張して使用してください。
+
+```javascript
+export default config({}, [
+  {
+    // foo/ 以下でのみ React に関する設定を有効化
+    files: ['foo/**/*.{ts,tsx}'],
+    extends: config.react(),
+    // 追加のルール設定など
+    rules: {
+      // ...
+    },
+  },
+]);
+```
+
 ### Next.js
 
 Next.js に関連した設定やルールを有効化するには、`next` オプションを有効化してください。
@@ -77,6 +93,22 @@ Core Web Vitals に関するルールも有効化する場合は `'strict'` を�
 export default config({
   next: 'strict',
 });
+```
+
+ディレクトリごとに Next.js に関する設定を有効化したい場合は、カスタム設定 (後述) で `config.next()` を拡張して使用してください。
+
+```javascript
+export default config({}, [
+  {
+    // foo/ 以下でのみ Next.js に関する設定を有効化
+    files: ['foo/**/*.{ts,tsx}'],
+    extends: config.next({ strict: true }),
+    // 追加のルール設定など
+    rules: {
+      // ...
+    },
+  },
+]);
 ```
 
 ### Prettier
