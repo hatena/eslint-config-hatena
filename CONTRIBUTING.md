@@ -39,9 +39,11 @@
 ```console
 $ git switch main
 $ git pull
-$ yarn version --no-git-tag-version
-$ git commit -am "vX.X.X"
 
+$ # package.json 内の version と、README のインストール方法に書かれているバージョンを更新
+$ # TODO: バージョン更新用のスクリプトを用意する
+
+$ git commit -am "vX.X.X"
 $ git push
 $ # push すると CI により自動で publish されます
 $ # Breaking Changes がある場合など、必要に応じて GitHub の
