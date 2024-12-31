@@ -70,7 +70,7 @@
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.10.2",
-    "@types/react": "^18.3.12",
+    "@types/react": "^18.3.18",
     "eslint": "^9.16.0",
     "globals": "^15.11.0",
     "npm-run-all2": "^7.0.1",
