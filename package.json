@@ -73,7 +73,7 @@
     "@types/react": "^18.3.18",
     "eslint": "^9.16.0",
     "globals": "^15.11.0",
-    "npm-run-all2": "^7.0.1",
+    "npm-run-all2": "^7.0.2",
     "prettier": "^3.4.2",
     "react": "^18.3.1",
     "typescript": "~5.6.3"
