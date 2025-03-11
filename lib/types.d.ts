@@ -55,3 +55,9 @@ declare module '@next/eslint-plugin-next' {
   };
   export = plugin;
 }
+
+declare module 'eslint-plugin-jsx-a11y' {
+  import type { ESLint } from 'eslint';
+  const plugin: ESLint.Plugin;
+  export = plugin;
+}
