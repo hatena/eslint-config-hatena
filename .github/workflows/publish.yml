@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4
         with:
           version: 9
       - uses: actions/setup-node@v4
@@ -38,7 +38,7 @@ jobs:
         run: echo "version=$(cat package.json | jq -r .version)" >> $GITHUB_OUTPUT
       # まだ tag がないバージョンなら tag を push する
       - name: publish tag
-        uses: pkgdeps/git-tag-action@v3
+        uses: pkgdeps/git-tag-action@ef111413f44ebe5cc05994e7f5b5b9edaaada08d # v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repo: ${{ github.repository }}
