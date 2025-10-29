@@ -32,8 +32,8 @@
     "!lib/**/__tests__"
   ],
   "scripts": {
-    "format": "prettier --write lib '*.js'",
-    "format:check": "prettier --check lib '*.js'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint --fix lib '*.js'",
     "lint:check": "eslint lib '*.js'",
     "typecheck": "tsc -p tsconfig.json --noEmit",
