@@ -21,7 +21,7 @@ jobs:
           always-auth: true
           registry-url: https://npm.pkg.github.com
           scope: '@hatena'
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # まだ publish されていないバージョンなら publish する
