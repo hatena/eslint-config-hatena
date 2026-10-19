@@ -138,7 +138,7 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@hatena/prettier-config-hatena@https://codeload.github.com/hatena/prettier-config-hatena/tar.gz/5c29d665ff10ae7885bb322be2b3b22749d8fb57':
-    resolution: {tarball: https://codeload.github.com/hatena/prettier-config-hatena/tar.gz/5c29d665ff10ae7885bb322be2b3b22749d8fb57}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/hatena/prettier-config-hatena/tar.gz/5c29d665ff10ae7885bb322be2b3b22749d8fb57}
     version: 1.0.0
     peerDependencies:
       prettier: '>=2.4.0'
